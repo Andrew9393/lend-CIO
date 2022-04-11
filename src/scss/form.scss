@@ -1,0 +1,338 @@
+$red: #F61067;
+
+.ask__img, .ask__form{
+    width: 40%;
+}
+
+.ask__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ask__img::after{
+    left: -50px;
+}
+
+.name, .phone, .email{
+    position: relative;
+    margin: 15px 0;
+
+        input{
+            width: 100%;
+            border-radius: 4px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        &::after{
+            content: "Iм'я *";
+            position: absolute;
+            top: -14px;
+            left: 15px;
+            background: #fff;
+            padding: 3px 10px;
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 10px;
+            background: url('../../img/ok.png');
+            padding: 3px 10px;
+            opacity: 0;
+        }
+}
+
+.phone::after{
+    content: "Телефон";
+}
+.email::after{
+    content: "Email *";
+}
+
+.form__item select{
+    width: 100%;
+}
+
+.select{
+    width: 100%;
+    border-radius: 4px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+.custom_select option{
+    color:#fff;
+}
+
+.choices__list.choices__list--dropdown{
+    box-sizing: border-box;
+}
+
+.choices__list--single{
+    padding: 0;
+}
+
+.choices[data-type*=select-one]::after{
+    right: 33px;
+}
+
+.checkboxes, .options{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+textarea.form__input{
+    min-height: 180px;
+    width: 100%;
+    resize: vertical;
+    border-radius: 4px;
+    border: 2px solid;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+.form__label{
+    display: flex;
+}
+
+.checkbox__input{
+    display: none;
+}
+
+.check{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    left: 0px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    top:0;
+    background: #fff;
+    transition: all .3 ease;
+    box-shadow: 0 0 2px #000;
+    z-index: 1;
+}
+.check::before{
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 12px;
+    left: 6px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotateZ(50deg) skewX(19deg);
+    top: 0px;
+    z-index: 2;
+}
+
+.checkbox__input:checked + .check{
+    background: #000;
+    transition: all .3 ease;
+}
+.text{
+    padding-left: 5px;
+    display: inline-block;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.options__label{
+    display: flex;
+}
+
+.radio{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    left: 0px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    top:0;
+    background: rgb(255, 255, 255);
+    transition: all .3 ease;
+    box-shadow: 0 0 2px #000;
+    z-index: 1;
+
+}
+.radio::before{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #fff;
+    z-index: 2;
+}
+
+input[type="radio"]:checked + .radio::before{
+    background: #000;
+    transition: all .3 ease;
+    display: flex
+}
+
+.form__button{
+    margin: 35px 0 0 0;
+}
+.error_message{
+    display: none;
+    position: relative;
+    color: $red;
+    padding-left: 20px;
+}
+.error_message::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    color: #000;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: $red;
+    width: 13px;
+    height: 13px; 
+}
+.error_message::before{
+    content: "!";
+    position: absolute;
+    left: 4px;
+    color: #fff; 
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-size: 13px;
+}
+.error .error_message{
+    display: block;
+}
+
+.error.name::before, .error.phone::before, .error.email::before{
+    background: url('../../img/error.png');
+    background-repeat: no-repeat;
+    opacity: 1;     
+}
+.ok.name::before, .ok.phone::before, .ok.email::before{
+    background: url('../../img/ok.png');
+    background-repeat: no-repeat;
+    opacity: 1;     
+}
+.ask{
+    position: relative;
+}
+
+.dispatch_message{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 105;
+    display: none;
+}
+
+.open_message{
+    display: block;
+    overflow: hidden;
+}
+
+.message__text{
+    background: #fff;
+    padding: 140px 80px 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 16;
+}
+
+.close_pop{
+    position: absolute;
+    top:20px;
+    right: 30px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+}
+
+.close_pop::after{
+    content: '';
+    position: absolute;
+    top:2px;
+    right: 9px;
+    width: 2px;
+    height: 14px;
+    background: #000;
+    transform: rotateZ(45deg);
+}
+.close_pop::before{
+    content: '';
+    position: absolute;
+    top:2px;
+    right: 9px;
+    width: 2px;
+    height: 14px;
+    background: #000;
+    transform: rotateZ(-45deg);
+}
+
+
+.message_title{
+    font-family: 'Georgia';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 50px;
+position: relative;
+display: flex;
+align-items: center;
+text-align: center;
+color: #000000;
+}
+
+.message_subtitle{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    color: #484848;
+}
+
+.message_title::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: $red;
+    width: 50px;
+    height: 50px; 
+}
+.message_title::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    color: #fff; 
+    top: -77px;
+    transform: translateX(-50%) rotateZ(43deg);
+    z-index: 2;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    width: 20px;
+    height: 35px; 
+}
